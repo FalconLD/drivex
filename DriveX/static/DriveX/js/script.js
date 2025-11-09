@@ -1,72 +1,121 @@
-// script.js - JavaScript functionality
+// ===================================================================
+//                FUNCIONES DE UTILIDAD
+// ===================================================================
 
-// Mobile menu toggle
-function toggleMobileMenu() {
-    const navLinks = document.querySelector('.nav-links');
-    navLinks.classList.toggle('active');
-}
+/**
+ * Función para crear y mostrar una notificación toast individual.
+ * @param {string} body - El texto del mensaje.
+ * @param {string} tags - Las clases CSS para el estilo (ej. "success", "error").
+ */
+function createToast(body, tags) {
+    const container = document.getElementById('toast-container');
+    if (!container) return;
 
-// Intersection Observer for fade-in animations on scroll
-function observeElements() {
-    const fadeElements = document.querySelectorAll('.fade-in');
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                // Optional: unobserve after animation to save resources
-                // observer.unobserve(entry.target);
-            }
+    const toast = document.createElement('div');
+    toast.className = `toast ${tags}`;
+    toast.textContent = body;
+
+    container.appendChild(toast);
+
+    setTimeout(() => {
+        toast.classList.add('hide');
+        toast.addEventListener('animationend', () => {
+            toast.remove();
         });
-    }, {
-        threshold: 0.1, // Trigger when 10% of the element is visible
-        rootMargin: '0px 0px -50px 0px' // Start animation a bit before it's fully in view
-    });
-    
-    fadeElements.forEach(element => {
-        observer.observe(element);
-    });
+    }, 5000);
 }
 
-// Set minimum date to today for date inputs
-// Note: Django's DateInput widget with type='date' already handles this visually,
-// but this can be a good fallback or enhancement.
-function setMinDate() {
-    // We look for any date input inside a form with the ID 'reservation-form'
-    const reservationForm = document.getElementById('reservation-form');
-    if (reservationForm) {
-        const dateInput = reservationForm.querySelector('input[type="date"]');
-        if (dateInput) {
-            const today = new Date();
-            const yyyy = today.getFullYear();
-            const mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
-            const dd = String(today.getDate()).padStart(2, '0');
-            dateInput.min = `${yyyy}-${mm}-${dd}`;
+
+// ===================================================================
+//                LÓGICA DE INICIALIZACIÓN PRINCIPAL
+// ===================================================================
+
+document.addEventListener('DOMContentLoaded', function() {
+
+    /**
+     * 1. SISTEMA DE NOTIFICACIONES TOAST
+     */
+    const messagesContainer = document.getElementById('django-messages');
+    if (messagesContainer) {
+        const messageItems = messagesContainer.querySelectorAll('.django-message-item');
+        messageItems.forEach(item => {
+            const messageBody = item.textContent;
+            const messageTags = Array.from(item.classList).filter(c => c !== 'django-message-item').join(' ');
+            createToast(messageBody, messageTags);
+        });
+        messagesContainer.remove();
+    }
+
+    /**
+     * 2. LÓGICA DE INTRO CON VIDEO (ACTUALIZADA)
+     * - Se reproduce automáticamente la primera vez que se visita el sitio.
+     * - Se puede volver a ver haciendo clic en el logo.
+     * - En visitas posteriores, se muestra el contenido principal directamente.
+     */
+    const video = document.getElementById('intro-video');
+    const audio = document.getElementById('intro-audio');
+    const btn = document.getElementById('play-intro');
+    const splash = document.getElementById('intro-splash');
+    const mainContent = document.getElementById('main-content');
+
+    if (video && audio && splash && mainContent) {
+        
+        const urlParams = new URLSearchParams(window.location.search);
+        const playIntroFromLogo = urlParams.get('intro') === 'true';
+        const introHasBeenPlayed = localStorage.getItem('introPlayed');
+
+        const onIntroEnd = () => {
+            splash.style.display = 'none';
+            mainContent.style.display = 'block';
+        };
+
+        if (playIntroFromLogo) {
+            // CASO 1: El usuario hizo clic en el logo (?intro=true en la URL).
+            // Mostramos la intro con el botón para que sea interactiva.
+            splash.style.display = 'flex';
+            mainContent.style.display = 'none';
+            btn.style.display = 'block';
+            btn.addEventListener('click', () => {
+                video.muted = false;
+                video.play();
+                audio.play();
+                btn.style.display = 'none';
+                video.onended = onIntroEnd;
+            }, { once: true }); // {once: true} evita añadir listeners duplicados
+
+        } else if (!introHasBeenPlayed) {
+            // CASO 2: Es la PRIMERA VEZ que el usuario visita (no hay nada en localStorage).
+            // Reproducimos la intro automáticamente y sin botón.
+            splash.style.display = 'flex';
+            mainContent.style.display = 'none';
+            btn.style.display = 'none';
+            
+            // Un pequeño truco para que los navegadores modernos permitan el audio automático.
+            // Si el video ya está en autoplay, solo necesitamos desmutearlo y sincronizar.
+            setTimeout(() => {
+                video.muted = false;
+                audio.currentTime = video.currentTime; // Sincroniza el audio con el video
+                audio.play();
+                video.play();
+            }, 100); // Un pequeño retardo
+
+            video.onended = onIntroEnd;
+            
+            // Guardamos en localStorage que la intro ya se ha reproducido.
+            localStorage.setItem('introPlayed', 'true');
+
+        } else {
+            // CASO 3: Es una visita posterior y no se hizo clic en el logo.
+            // Ocultamos la intro y mostramos el contenido principal directamente.
+            splash.style.display = 'none';
+            mainContent.style.display = 'block';
         }
     }
-}
 
-// Smooth scrolling for internal navigation links (e.g., to #contact)
-function smoothScroll(target) {
-    const element = document.querySelector(target);
-    if (element) {
-        element.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-        });
-    }
-}
 
-// Main function to run when the DOM is fully loaded
-document.addEventListener('DOMContentLoaded', function() {
-    
-    // Set minimum date for any date fields
-    setMinDate();
-    
-    // Initialize intersection observer for animations
-    observeElements();
-    
-    // Mobile menu button functionality
+    /**
+     * 3. MENÚ DE NAVEGACIÓN MÓVIL
+     */
     const mobileBtn = document.querySelector('.mobile-menu-btn');
     const navLinks = document.querySelector('.nav-links');
     if (mobileBtn && navLinks) {
@@ -74,69 +123,26 @@ document.addEventListener('DOMContentLoaded', function() {
             navLinks.classList.toggle('show');
         });
     }
-    
-    // Handle window resize for mobile menu cleanup
-    window.addEventListener('resize', () => {
-        if (window.innerWidth > 768 && navLinks && navLinks.classList.contains('show')) {
-            navLinks.classList.remove('show');
-        }
-    });
-    
-    // Close mobile menu when clicking outside of the navigation area
-    document.addEventListener('click', (e) => {
-        const nav = document.querySelector('nav');
-        if (nav && navLinks && !nav.contains(e.target) && navLinks.classList.contains('show')) {
-            navLinks.classList.remove('show');
-        }
-    });
-    
-    // Add smooth scrolling to all internal links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = this.getAttribute('href');
-            if (target !== '#') {
-                smoothScroll(target);
-            }
+
+    /**
+     * 4. ANIMACIONES "FADE-IN" AL HACER SCROLL
+     */
+    const fadeElements = document.querySelectorAll('.fade-in');
+    if (fadeElements.length > 0) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
         });
-    });
-});
 
-// Función para mostrar notificaciones Toast
-function showToastNotifications() {
-    // Comprueba si la variable de mensajes de Django existe
-    if (typeof django_messages !== 'undefined' && django_messages.length > 0) {
-        const container = document.getElementById('toast-container');
-        if (!container) return;
-
-        django_messages.forEach((message, index) => {
-            // Creamos el elemento toast
-            const toast = document.createElement('div');
-            toast.className = `toast ${message.tags}`; // Clases: 'toast' y 'success', 'error', etc.
-            toast.textContent = message.body;
-
-            // Lo añadimos al contenedor
-            container.appendChild(toast);
-
-            // Hacemos que desaparezca después de 5 segundos
-            setTimeout(() => {
-                toast.classList.add('hide');
-                // Lo eliminamos del DOM después de que la animación de salida termine
-                toast.addEventListener('animationend', () => {
-                    toast.remove();
-                });
-            }, 5000);
+        fadeElements.forEach(element => {
+            observer.observe(element);
         });
     }
-}
-
-
-// Main function to run when the DOM is fully loaded
-document.addEventListener('DOMContentLoaded', function() {
-    
-    // ... (tu código existente dentro del listener) ...
-
-    // ¡Añade esta línea para activar las notificaciones!
-    showToastNotifications();
 
 });

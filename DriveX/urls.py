@@ -14,7 +14,6 @@ urlpatterns = [
     path('terminos/', views.terminos, name='terminos'),
     path('sobre-nosotros/', views.sobre_nosotros, name='sobre_nosotros'),
     path('promociones/', views.promociones, name='promociones'),
-    path('calcular-ruta/', views.calcular_ruta, name='calcular_ruta'),
 
     
     # ... (tus URLs de autenticación sin cambios) ...

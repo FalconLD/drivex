@@ -4,38 +4,54 @@
 {% block title %}Promociones - Rental Car DriveX{% endblock %}
 
 {% block content %}
-
-<main>
-    <section class="promotions-section">
+<main style="padding-top: 120px; padding-bottom: 5rem;">
+    <section class="promotions-page">
         <div class="container">
-            <h2 class="section-title">Ofertas y Promociones</h2>
-            <p class="section-subtitle">Aprovecha nuestras ofertas exclusivas para una experiencia de lujo a precios
-                inigualables.</p>
-            <div class="promotions-list">
-                <div class="promotion-item">
-                    <h3>Descuento por Reserva Anticipada</h3>
-                    <p>Reserva con 30 días de antelación y obtén un 15% de descuento en cualquier vehículo de nuestra
-                        flota.</p>
-                    <p class="validity">Válido hasta el 31 de diciembre de 2025</p>
-                    <a href="/reserva/" class="cta-button">Reservar Ahora</a>
+            <div class="section-title fade-in">
+                <h2>Ofertas Exclusivas</h2>
+                <p>Disfruta de una experiencia de lujo a un valor inigualable.</p>
+            </div>
+
+            <!-- Usamos la clase .services-grid existente para la maquetación -->
+            <div class="services-grid" style="align-items: stretch;">
+
+                <!-- Promoción 1 -->
+                <div class="service-card fade-in">
+                    <div style="padding: 2rem; text-align: center; display: flex; flex-direction: column; height: 100%;">
+                        <h3 class="card-title">Descuento por Reserva Anticipada</h3>
+                        <p style="color: var(--text-gray); flex-grow: 1;">
+                            Reserva con 30 días de antelación y obtén un <strong>15% de descuento</strong> en cualquier vehículo de nuestra flota.
+                        </p>
+                        <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--primary-gold); font-style: italic;">Válido hasta el 31 de diciembre de 2025</p>
+                        <a href="{% url 'reserva' %}" class="cta-button" style="margin-top: 1.5rem;">Reservar Ahora</a>
+                    </div>
                 </div>
-                <div class="promotion-item">
-                    <h3>Paquete con Chofer Incluido</h3>
-                    <p>Reserva un vehículo de la categoría "Eléctricos" por 24 horas y obtén un chofer profesional
-                        gratis.</p>
-                    <p class="validity">Válido para reservas realizadas en octubre de 2025</p>
-                    <a href="/reserva/" class="cta-button">Reservar Ahora</a>
+
+                <!-- Promoción 2 -->
+                <div class="service-card fade-in" style="animation-delay: 0.2s;">
+                     <div style="padding: 2rem; text-align: center; display: flex; flex-direction: column; height: 100%;">
+                        <h3 class="card-title">Paquete con Chofer Incluido</h3>
+                        <p style="color: var(--text-gray); flex-grow: 1;">
+                            Reserva un vehículo de la categoría "Eléctricos" por 24 horas y te incluimos un <strong>chofer profesional sin costo adicional</strong>.
+                        </p>
+                        <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--primary-gold); font-style: italic;">Válido para reservas en octubre de 2025</p>
+                        <a href="{% url 'reserva' %}" class="cta-button" style="margin-top: 1.5rem;">Ver Eléctricos</a>
+                    </div>
                 </div>
-                <div class="promotion-item">
-                    <h3>Fin de Semana de Lujo</h3>
-                    <p>Alquila cualquier vehículo de viernes a domingo y obtén un 20% de descuento en la tarifa total.
-                    </p>
-                    <p class="validity">Válido todos los fines de semana hasta el 31 de julio de 2025</p>
-                    <a href="/reserva/" class="cta-button">Reservar Ahora</a>
+
+                <!-- Promoción 3 -->
+                <div class="service-card fade-in" style="animation-delay: 0.4s;">
+                     <div style="padding: 2rem; text-align: center; display: flex; flex-direction: column; height: 100%;">
+                        <h3 class="card-title">Fin de Semana de Lujo</h3>
+                        <p style="color: var(--text-gray); flex-grow: 1;">
+                            Alquila cualquiera de nuestros vehículos de viernes a domingo y recibe un <strong>20% de descuento</strong> en la tarifa total.
+                        </p>
+                        <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--primary-gold); font-style: italic;">Válido hasta el 31 de julio de 2025</p>
+                        <a href="{% url 'reserva' %}" class="cta-button" style="margin-top: 1.5rem;">Reservar Fin de Semana</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 </main>
-
 {% endblock %}
