@@ -55,11 +55,15 @@ docker compose up --build
 Smoke HTTP: Home 200 (11.9 KB) · /vehiculos/ 200 · /media/vehiculos/bronco.jpg 200
 ```
 
-## Post-push (pendiente tras publicación)
+## Post-push (gate Tier A)
 
-| # | Prueba | Estado |
-|---|--------|--------|
-| 1 | Clone limpio + setup desde README | PENDIENTE (ejecutar tras push) |
+| # | Prueba | Comando | Resultado | PASS |
+|---|--------|---------|-----------|------|
+| 1 | Clone limpio | `git clone --depth 1 https://github.com/FalconLD/drivex.git` | 117 archivos, sin errores | ✅ |
+| 2 | Archivos clave presentes | Test-Path sobre manage.py, Dockerfile, compose, fixture, seeder, README | Todos presentes; `media/` con 41 imágenes | ✅ |
+| 3 | Compose válido en clone | `docker compose config --quiet` | Exit 0 | ✅ |
+
+> Secret scanning vía API de GitHub: no disponible (repo sin GitHub Advanced Security habilitado). Mitigación: escaneo manual de secretos PASS (ver `security-clearance.md`) y push protection de GitHub no rechazó el push.
 
 ## Issues pendientes
 

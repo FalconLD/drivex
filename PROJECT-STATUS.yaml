@@ -1,0 +1,14 @@
+project_id: drivex-rental-car
+tier: A
+phase_completed: publication
+last_agent: orquestador-oleada-p0
+last_session_date: 2026-06-12
+blockers: []
+evidence_links:
+  - docs/validation-report.md
+  - docs/security-clearance.md
+  - https://github.com/FalconLD/drivex
+status: VALIDADO
+remote_url: https://github.com/FalconLD/drivex
+visibility: public
+next_action: "Opcional: mover a taxonomía 01-web-apps/grupo en oleada de reorganización física (P1)"
