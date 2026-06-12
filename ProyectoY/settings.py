@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -19,14 +20,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
-# SECURITY WARNING: La SECRET_KEY no debe estar hardcodeada en producción.
-# Considera usar variables de entorno para cargarla de forma segura.
-SECRET_KEY = 'django-insecure-&k@*1qy!f9a@04z3h)s)4iv9xt(b5b%e_e#xbl6ps7wz-alpwf'
+# SECURITY WARNING: en producción definir DJANGO_SECRET_KEY como variable de entorno.
+# El valor por defecto es solo para desarrollo/demo local.
+SECRET_KEY = os.environ.get(
+    'DJANGO_SECRET_KEY',
+    'django-insecure-demo-key-solo-para-desarrollo-local'
+)
 
 # SECURITY WARNING: No ejecutes la aplicación con DEBUG=True en producción.
-DEBUG = True
+DEBUG = os.environ.get('DJANGO_DEBUG', 'True').lower() in ('true', '1', 'yes')
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
 
 
 # Application definition
@@ -76,16 +80,16 @@ WSGI_APPLICATION = 'ProyectoY.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-# SECURITY WARNING: Las credenciales de la base de datos no deben estar hardcodeadas.
-# Utiliza variables de entorno para proteger esta información.
+# Credenciales vía variables de entorno (ver .env.example).
+# Los valores por defecto corresponden al entorno de desarrollo/demo local.
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'drivex_db',
-        'USER': 'drivex_user',
-        'PASSWORD': '1234',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'NAME': os.environ.get('DB_NAME', 'drivex_db'),
+        'USER': os.environ.get('DB_USER', 'drivex_user'),
+        'PASSWORD': os.environ.get('DB_PASSWORD', '1234'),
+        'HOST': os.environ.get('DB_HOST', 'localhost'),
+        'PORT': os.environ.get('DB_PORT', '5432'),
     }
 }
 

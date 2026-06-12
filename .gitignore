@@ -7,17 +7,15 @@ env/
 db.sqlite3
 *.sqlite3
 
-# Archivos multimedia subidos por usuarios
-media/
-
 # Archivos de Python
 __pycache__/
 *.pyc
 
-# Archivos de configuración con secretos (buena práctica para el futuro)
+# Archivos de configuración con secretos
 .env
 
-# Backups de la base de datos
+# Backups de la base de datos (contienen usuarios reales / PII)
 data_backup.json
 
-db.sqlite3
+# NOTA: media/ SÍ se versiona — contiene las imágenes de demo
+# (vehículos, categorías, pilotos) necesarias para reproducir el proyecto.

@@ -1,0 +1,510 @@
+[
+{
+  "model": "DriveX.categoria",
+  "pk": 1,
+  "fields": {
+    "nombre": "Vehículos a Gasolina",
+    "descripcion": "Descubre la potencia y elegancia de nuestra flota de vehículos a gasolina, diseñados para ofrecer un rendimiento excepcional y un estilo incomparable. Perfectos para quienes buscan una experiencia de conducción clásica con la fiabilidad y fuerza de los motores de combustión interna de última generación. Ideal para viajes largos o escapadas de lujo.",
+    "slug": "gasolina",
+    "imagen": "categorias/gasolina.jpg"
+  }
+},
+{
+  "model": "DriveX.categoria",
+  "pk": 2,
+  "fields": {
+    "nombre": "Vehículos Híbridos",
+    "descripcion": "Combina eficiencia y sofisticación con nuestra selección de vehículos híbridos, que integran lo mejor de la tecnología de combustión y eléctrica. Disfruta de un equilibrio perfecto entre potencia, ahorro de combustible y sostenibilidad, ideal para conductores conscientes del medio ambiente que no sacrifican confort ni lujo.",
+    "slug": "vehiculos-hibridos",
+    "imagen": "categorias/hybrid.jpg"
+  }
+},
+{
+  "model": "DriveX.categoria",
+  "pk": 3,
+  "fields": {
+    "nombre": "Vehículos Eléctricos",
+    "descripcion": "Sumérgete en el futuro del lujo con nuestra flota de vehículos eléctricos, impulsados por la innovación y el compromiso con la sostenibilidad. Experimenta un manejo silencioso, aceleración instantánea y tecnología de punta, perfectos para quienes desean un viaje ecológico sin comprometer el prestigio y la comodidad.",
+    "slug": "vehiculos-electricos",
+    "imagen": "categorias/bateria.jpg"
+  }
+},
+{
+  "model": "DriveX.categoria",
+  "pk": 4,
+  "fields": {
+    "nombre": "Vehículos 4x4",
+    "descripcion": "Domina cualquier terreno con nuestra exclusiva gama de vehículos 4x4, diseñados para ofrecer potencia, resistencia y control en todo tipo de caminos. Ya sea en aventuras todoterreno o desplazamientos urbanos exigentes, estos modelos combinan robustez, tecnología avanzada y un diseño imponente. Ideales para quienes buscan libertad sin límites, seguridad en cada trayecto y un estilo que impone presencia en cualquier entorno.",
+    "slug": "vehiculos-4x4",
+    "imagen": "categorias/4x4.jpg"
+  }
+},
+{
+  "model": "DriveX.vehiculo",
+  "pk": 1,
+  "fields": {
+    "nombre": "Mercedes-Benz Clase S",
+    "descripcion": "El Mercedes-Benz Clase S es el sedán ejecutivo por excelencia. Incorpora tecnología de vanguardia, confort premium y motores eficientes. Con un consumo de entre 8 y 10 km/l, ofrece una conducción silenciosa y sofisticada.",
+    "caracteristicas": "Sedán de lujo, Interior premium, Asientos con masaje, Sistema MBUX, Luces LED inteligentes, Consumo 8–10 km/l, Cámara 360°, Asistencia semiautónoma",
+    "categoria": 1,
+    "valor_slug": "mercedes-clase-s",
+    "imagen": "vehiculos/Clase-S-Mercedes-Benz.png",
+    "es_destacado": false
+  }
+},
+{
+  "model": "DriveX.vehiculo",
+  "pk": 2,
+  "fields": {
+    "nombre": "Bentley Continental GT",
+    "descripcion": "El Bentley Continental GT es un coupé de lujo híbrido enchufable que ofrece hasta 48 km de autonomía eléctrica, combinando elegancia británica con alto rendimiento. Cuenta con un motor V8 biturbo, tracción total y acabados artesanales. Su consumo mixto es de 22 km/l en modo híbrido y 8 km/l solo gasolina.",
+    "caracteristicas": "Coupé de lujo, Híbrido enchufable, Tracción total, Interior artesanal, Autonomía eléctrica 48 km, Motor V8, Consumo mixto 22 km/l, Sistema de sonido premium, Suspensión neumática",
+    "categoria": 2,
+    "valor_slug": "bentley-continental-gt",
+    "imagen": "vehiculos/Bentley_GT.png",
+    "es_destacado": false
+  }
+},
+{
+  "model": "DriveX.vehiculo",
+  "pk": 3,
+  "fields": {
+    "nombre": "BMW X7 xDrive40i",
+    "descripcion": "El BMW X7 es un SUV de gran tamaño con capacidad para 7 pasajeros. Equipado con un motor a gasolina de 3.0L turbo, entrega lujo, espacio y tecnología. Su rendimiento promedio es de 9 km/l, ideal para viajes largos con comodidad.",
+    "caracteristicas": "SUV de lujo, Motor 3.0L turbo, Tracción xDrive, 7 asientos, Pantalla dual, Asistencias de conducción, Consumo 9 km/l, Cámara 360°, Suspensión adaptativa",
+    "categoria": 1,
+    "valor_slug": "bmw-x7",
+    "imagen": "vehiculos/BMW_X7.png",
+    "es_destacado": false
+  }
+},
+{
+  "model": "DriveX.vehiculo",
+  "pk": 4,
+  "fields": {
+    "nombre": "Land Rover Range Rover Velar",
+    "descripcion": "El Range Rover Velar destaca por su diseño limpio y moderno. Equipado con motor a gasolina, rinde hasta 11 km/l en carretera. Ofrece tracción total, pantallas táctiles dobles y acabados de alta gama.",
+    "caracteristicas": "SUV mediano, Tracción total, Diseño minimalista, Pantallas táctiles duales, Consumo 11 km/l, Suspensión neumática, Cámara 360°",
+    "categoria": 1,
+    "valor_slug": "range-rover-velar",
+    "imagen": "vehiculos/Land_Rover_Velar.png",
+    "es_destacado": false
+  }
+},
+{
+  "model": "DriveX.vehiculo",
+  "pk": 5,
+  "fields": {
+    "nombre": "Maserati Quattroporte",
+    "descripcion": "El Maserati Quattroporte es un sedán italiano deportivo con motores V6 o V8 que producen un sonido icónico. Su rendimiento ronda los 8–9 km/l, y combina lujo con una experiencia de conducción apasionante.",
+    "caracteristicas": "Sedán deportivo, Motor V6 o V8, Sonido Maserati, Interior de cuero, Consumo 8–9 km/l, Luces adaptativas, Diseño italiano",
+    "categoria": 1,
+    "valor_slug": "maserati-quattroporte",
+    "imagen": "vehiculos/Maserati_Quattroporte.png",
+    "es_destacado": false
+  }
+},
+{
+  "model": "DriveX.vehiculo",
+  "pk": 6,
+  "fields": {
+    "nombre": "Mercedes-AMG S63",
+    "descripcion": "El S63 AMG es la versión deportiva del Clase S, con un potente motor V8 biturbo y más de 600 caballos. Su consumo promedio es de 7–8 km/l. Ofrece lujo extremo y una aceleración impresionante.",
+    "caracteristicas": "Sedán deportivo, Motor V8 biturbo, Más de 600 hp, Tracción 4MATIC, Consumo 7–8 km/l, Interior AMG, Suspensión adaptativa",
+    "categoria": 1,
+    "valor_slug": "mercedes-amg-s63",
+    "imagen": "vehiculos/Mercedes_S63.png",
+    "es_destacado": false
+  }
+},
+{
+  "model": "DriveX.vehiculo",
+  "pk": 7,
+  "fields": {
+    "nombre": "Porsche 911 Carrera",
+    "descripcion": "El Porsche 911 es un coupé deportivo icónico con motor bóxer trasero. Su consumo promedio está entre 9 y 11 km/l. Ofrece manejo preciso, aceleración potente y un diseño clásico reconocido mundialmente.",
+    "caracteristicas": "Coupé deportivo, Motor bóxer, Tracción trasera o total, Interior deportivo, Consumo 9–11 km/l, Navegación Porsche, Suspensión activa",
+    "categoria": 1,
+    "valor_slug": "porsche-911",
+    "imagen": "vehiculos/Porsche_911.png",
+    "es_destacado": false
+  }
+},
+{
+  "model": "DriveX.vehiculo",
+  "pk": 8,
+  "fields": {
+    "nombre": "Porsche Panamera",
+    "descripcion": "El Porsche Panamera es un sedán deportivo con alma de coupé. Disponible en versiones a gasolina y PHEV, puede recorrer hasta 50 km en modo eléctrico. Su consumo combinado ronda los 20 km/l en híbrido.",
+    "caracteristicas": "Sedán deportivo, Híbrido enchufable, Autonomía eléctrica 50 km, Motor turbo, Interior de lujo, Consumo combinado 20 km/l",
+    "categoria": 2,
+    "valor_slug": "porsche-panamera",
+    "imagen": "vehiculos/Porshe_Panamera.png",
+    "es_destacado": false
+  }
+},
+{
+  "model": "DriveX.vehiculo",
+  "pk": 9,
+  "fields": {
+    "nombre": "Range Rover",
+    "descripcion": "El Range Rover es un SUV de lujo con capacidad todoterreno excepcional. Disponible en versiones a gasolina o híbridas enchufables. Rinde entre 7 y 10 km/l según versión, y hasta 80 km en modo eléctrico.",
+    "caracteristicas": "SUV de lujo, Tracción total, Acabados premium, Suspensión neumática, Consumo 7–10 km/l, Autonomía eléctrica 80 km (en híbrido)",
+    "categoria": 2,
+    "valor_slug": "range-rover",
+    "imagen": "vehiculos/Range_Rover.png",
+    "es_destacado": false
+  }
+},
+{
+  "model": "DriveX.vehiculo",
+  "pk": 10,
+  "fields": {
+    "nombre": "Tesla Model S",
+    "descripcion": "El Tesla Model S es un sedán 100% eléctrico con autonomía de hasta 660 km por carga. Ofrece aceleración instantánea, conducción autónoma y un sistema tecnológico avanzado.",
+    "caracteristicas": "Sedán eléctrico, Autonomía 660 km, Pantalla táctil central, Conducción autónoma, Consumo 16–19 kWh/100 km, Carga rápida, 0–100 km/h en 2 s (Plaid)",
+    "categoria": 3,
+    "valor_slug": "tesla-model-s",
+    "imagen": "vehiculos/Tesla_Model_S.png",
+    "es_destacado": false
+  }
+},
+{
+  "model": "DriveX.vehiculo",
+  "pk": 11,
+  "fields": {
+    "nombre": "Tesla Model 3",
+    "descripcion": "El Tesla Model 3 es un sedán eléctrico con diseño moderno, excelente autonomía y tecnología de conducción autónoma. Ideal para quienes buscan rendimiento y sostenibilidad.",
+    "caracteristicas": "Sedán eléctrico, Autonomía 491 km, Consumo 14.9 kWh/100 km, Pantalla táctil, Autopilot, Tracción trasera o total, 0–100 km/h en 4.2 s, Carga rápida",
+    "categoria": 3,
+    "valor_slug": "tesla-model-3",
+    "imagen": "vehiculos/Tesla_model_3.png",
+    "es_destacado": false
+  }
+},
+{
+  "model": "DriveX.vehiculo",
+  "pk": 12,
+  "fields": {
+    "nombre": "Porsche Taycan Turbo S",
+    "descripcion": "El Porsche Taycan Turbo S es un sedán eléctrico de lujo con altísimo rendimiento. Combina el ADN deportivo de Porsche con tecnología 100% eléctrica, ofreciendo hasta 761 hp.",
+    "caracteristicas": "Sedán eléctrico deportivo, Autonomía 416 km, 0–100 km/h en 2.8 s, Potencia 761 hp, Tracción total, Interior premium, Carga ultra rápida 800V, Pantallas digitales múltiples",
+    "categoria": 3,
+    "valor_slug": "porsche-taycan-turbo-s",
+    "imagen": "vehiculos/Porsche_Taycan.png",
+    "es_destacado": false
+  }
+},
+{
+  "model": "DriveX.vehiculo",
+  "pk": 13,
+  "fields": {
+    "nombre": "Tesla Model S Plaid",
+    "descripcion": "El Tesla Model S Plaid es uno de los sedanes eléctricos más rápidos del mundo. Ofrece rendimiento extremo, gran autonomía y un interior tecnológico sin igual.",
+    "caracteristicas": "Sedán eléctrico, Autonomía 637 km, 0–100 km/h en 2.1 s, Tracción total, 1020 hp, Pantalla central giratoria, Volante tipo yoke, Autopilot avanzado",
+    "categoria": 3,
+    "valor_slug": "tesla-model-s-plaid",
+    "imagen": "vehiculos/2021-Tesla-Model-S.png",
+    "es_destacado": false
+  }
+},
+{
+  "model": "DriveX.vehiculo",
+  "pk": 14,
+  "fields": {
+    "nombre": "BMW i7 xDrive60",
+    "descripcion": "El BMW i7 xDrive60 es la berlina eléctrica de lujo por excelencia. Silencioso, majestuoso y equipado con materiales de alta gama, pantalla trasera de cine y asistentes autónomos.",
+    "caracteristicas": "Berlina de lujo eléctrica, Autonomía 625 km, Tracción total, Interior con pantallas de 31\", Asistentes ADAS nivel 2+, Carga rápida, Iluminación ambiental inteligente",
+    "categoria": 3,
+    "valor_slug": "bmw-i7-xdrive60",
+    "imagen": "vehiculos/2023-BMW-i7.png",
+    "es_destacado": false
+  }
+},
+{
+  "model": "DriveX.vehiculo",
+  "pk": 15,
+  "fields": {
+    "nombre": "Mercedes-Benz EQS 580 4MATIC",
+    "descripcion": "El EQS es la joya eléctrica de Mercedes. Un sedán de lujo silencioso, elegante y tecnológicamente avanzado con hasta 782 km de autonomía.",
+    "caracteristicas": "Sedán eléctrico de lujo, Autonomía 676–782 km (WLTP), Tracción total 4MATIC, Pantalla MBUX Hyperscreen de 56\", Asistentes de nivel 2, Suspensión neumática",
+    "categoria": 3,
+    "valor_slug": "mercedes-eqs-580-4matic",
+    "imagen": "vehiculos/2022-Mercedes-Benz-EQS.png",
+    "es_destacado": false
+  }
+},
+{
+  "model": "DriveX.vehiculo",
+  "pk": 16,
+  "fields": {
+    "nombre": "Audi e-tron GT RS",
+    "descripcion": "El Audi e-tron GT RS es un deportivo eléctrico de alta gama que combina potencia brutal con una estética elegante y futurista. Perfecto para quien exige estilo y rendimiento.",
+    "caracteristicas": "Coupé eléctrico deportivo, Autonomía 472 km, 0–100 km/h en 3.3 s, 646 hp, Tracción quattro (AWD), Acabados en fibra de carbono, Asientos deportivos calefactables",
+    "categoria": 3,
+    "valor_slug": "audi-e-tron-gt-rs",
+    "imagen": "vehiculos/2025-Audi-RS-E-Tron-GT.png",
+    "es_destacado": false
+  }
+},
+{
+  "model": "DriveX.vehiculo",
+  "pk": 17,
+  "fields": {
+    "nombre": "Toyota Land Cruiser 300",
+    "descripcion": "SUV todoterreno insignia de Toyota, combina lujo y capacidad extrema para cualquier terreno.",
+    "caracteristicas": "SUV a gasolina, motor V6 biturbo 3.5 L, 409 hp, Tracción 4x4 permanente, Sistema Multi-Terrain Select, interior en cuero premium, pantalla táctil 12.3\", capacidad de remolque de 3.5 toneladas.",
+    "categoria": 4,
+    "valor_slug": "toyota-land-cruiser-300",
+    "imagen": "vehiculos/2025-Toyota-Land-Cruiser-250-007-1600.jpg",
+    "es_destacado": false
+  }
+},
+{
+  "model": "DriveX.vehiculo",
+  "pk": 18,
+  "fields": {
+    "nombre": "Mercedes-Benz G 63 AMG",
+    "descripcion": "El icónico “G-Wagen” con ADN militar y un interior de superlujo. Pura potencia alemana.",
+    "caracteristicas": "SUV a gasolina, motor V8 biturbo 4.0 L, 585 hp, 0–100 km/h en 4.5 s, Tracción 4MATIC, bloqueo de diferenciales, suspensión AMG Ride Control, interior en cuero napa y fibra de carbono.",
+    "categoria": 4,
+    "valor_slug": "mercedes-benz-g-63-amg",
+    "imagen": "vehiculos/2025-Mercedes-AMG-G63-005-1600.jpg",
+    "es_destacado": false
+  }
+},
+{
+  "model": "DriveX.vehiculo",
+  "pk": 19,
+  "fields": {
+    "nombre": "Bentley Bentayga V8",
+    "descripcion": "El Bentley Bentayga V8 redefine el lujo 4x4. Con un diseño espectacular y tecnología de vanguardia, ofrece un rendimiento excepcional tanto en carretera como fuera de ella, sin sacrificar el confort ni la elegancia. Un SUV de lujo para aquellos que buscan una experiencia exclusiva y poderosa.",
+    "caracteristicas": "SUV a gasolina, motor V8 4.0 L biturbo, 542 hp, Tracción AWD con sistema Dynamic Ride, suspensión neumática adaptativa, interior en cuero de lujo, madera noble y detalles en aluminio, sistema de sonido Naim para Bentley, pantalla táctil de 10.9\", capacida",
+    "categoria": 4,
+    "valor_slug": "bentley-bentayga-v8",
+    "imagen": "vehiculos/2024-Bentley-Bentayga-S-Black-Edition-001-1600.jpg",
+    "es_destacado": false
+  }
+},
+{
+  "model": "DriveX.vehiculo",
+  "pk": 20,
+  "fields": {
+    "nombre": "Ford F-150 Raptor",
+    "descripcion": "La pick-up deportiva de alto rendimiento para dominar carreteras y terrenos extremos.",
+    "caracteristicas": "Pick-up a gasolina, motor V6 EcoBoost 3.5 L twin-turbo, 450 hp, 0–100 km/h en 5.5 s, Tracción 4x4, amortiguadores FOX Live Valve, modos de manejo off-road, caja de carga reforzada.",
+    "categoria": 4,
+    "valor_slug": "ford-f-150-raptor",
+    "imagen": "vehiculos/2023-Ford-F-150-Raptor-R-007-1600.jpg",
+    "es_destacado": false
+  }
+},
+{
+  "model": "DriveX.vehiculo",
+  "pk": 21,
+  "fields": {
+    "nombre": "Ford Bronco Wildtrak",
+    "descripcion": "El todoterreno americano por excelencia. Estilo retro, alma aventurera y tecnología moderna para conquistar cualquier camino.",
+    "caracteristicas": "SUV a gasolina, motor V6 EcoBoost 2.7 L biturbo, 330 hp, Tracción 4x4 con sistema avanzado G.O.A.T. Modes (Goes Over Any Terrain), neumáticos todoterreno de 35\", suspensión HOSS 3.0 con amortiguadores FOX, techo desmontable, interior resistente con tecnol",
+    "categoria": 4,
+    "valor_slug": "ford-bronco-wildtrak",
+    "imagen": "vehiculos/bronco.jpg",
+    "es_destacado": true
+  }
+},
+{
+  "model": "DriveX.vehiculo",
+  "pk": 22,
+  "fields": {
+    "nombre": "Lamborghini Urus",
+    "descripcion": "El Lamborghini Urus combina el lujo y la performance de la marca con un sistema de tracción integral capaz de enfrentar los terrenos más difíciles, desde montañas hasta caminos de tierra. Un SUV de super lujo que no solo ofrece potencia extrema, sino también capacidad para conquistar cualquier desafío fuera de la carretera, todo sin perder el estilo y la elegancia que caracterizan a Lamborghini.",
+    "caracteristicas": "SUV a gasolina, motor V8 4.0 L biturbo, 650 hp, Tracción AWD con sistema dinámico de tracción integral, suspensión neumática adaptativa y modos de manejo off-road, llantas deportivas todoterreno, interior en cuero de alta gama con detalles en alcántara y",
+    "categoria": 4,
+    "valor_slug": "lamborghini-urus",
+    "imagen": "vehiculos/2025-Lamborghini-Urus-SE-001-1600.jpg",
+    "es_destacado": true
+  }
+},
+{
+  "model": "DriveX.piloto",
+  "pk": 1,
+  "fields": {
+    "nombre": "Michael Schumacher",
+    "disciplina": "F1",
+    "edad": 56,
+    "altura_cm": 174,
+    "experiencia_años": 30,
+    "idiomas": "Alemán, Inglés",
+    "calificacion": "5.0",
+    "imagen": "pilotos/michael-schumacher.jpg"
+  }
+},
+{
+  "model": "DriveX.piloto",
+  "pk": 3,
+  "fields": {
+    "nombre": "Lewis Hamilton",
+    "disciplina": "F1",
+    "edad": 40,
+    "altura_cm": 174,
+    "experiencia_años": 20,
+    "idiomas": "Inglés",
+    "calificacion": "4.9",
+    "imagen": "pilotos/lewis_rmvxNta.png"
+  }
+},
+{
+  "model": "DriveX.piloto",
+  "pk": 7,
+  "fields": {
+    "nombre": "Sébastien Loeb",
+    "disciplina": "RALLY",
+    "edad": 50,
+    "altura_cm": 176,
+    "experiencia_años": 25,
+    "idiomas": "Francés, Inglés",
+    "calificacion": "5.0",
+    "imagen": "pilotos/loeb.jpg"
+  }
+},
+{
+  "model": "DriveX.piloto",
+  "pk": 8,
+  "fields": {
+    "nombre": "Sébastien Ogier",
+    "disciplina": "RALLY",
+    "edad": 38,
+    "altura_cm": 175,
+    "experiencia_años": 15,
+    "idiomas": "Francés, Inglés",
+    "calificacion": "4.9",
+    "imagen": "pilotos/sebastien-ogier-toyota-gazoo-r.jpg"
+  }
+},
+{
+  "model": "DriveX.piloto",
+  "pk": 9,
+  "fields": {
+    "nombre": "Carlos Sainz",
+    "disciplina": "RALLY",
+    "edad": 58,
+    "altura_cm": 175,
+    "experiencia_años": 35,
+    "idiomas": "Español, Inglés",
+    "calificacion": "4.8",
+    "imagen": "pilotos/Carlos_Sainz_2014_Dakar.jpg"
+  }
+},
+{
+  "model": "DriveX.piloto",
+  "pk": 10,
+  "fields": {
+    "nombre": "Tommi Mäkinen",
+    "disciplina": "RALLY",
+    "edad": 57,
+    "altura_cm": 172,
+    "experiencia_años": 20,
+    "idiomas": "Finlandés, Inglés",
+    "calificacion": "4.7",
+    "imagen": "pilotos/13-3-10902796.png"
+  }
+},
+{
+  "model": "DriveX.piloto",
+  "pk": 14,
+  "fields": {
+    "nombre": "Marcus Grönholm",
+    "disciplina": "RALLY",
+    "edad": 57,
+    "altura_cm": 182,
+    "experiencia_años": 22,
+    "idiomas": "Finlandés, Inglés",
+    "calificacion": "4.8",
+    "imagen": "pilotos/marcus.jpg"
+  }
+},
+{
+  "model": "DriveX.piloto",
+  "pk": 15,
+  "fields": {
+    "nombre": "Colin McRae",
+    "disciplina": "RALLY",
+    "edad": 37,
+    "altura_cm": 178,
+    "experiencia_años": 15,
+    "idiomas": "Inglés",
+    "calificacion": "4.9",
+    "imagen": "pilotos/coli.jpg"
+  }
+},
+{
+  "model": "DriveX.piloto",
+  "pk": 17,
+  "fields": {
+    "nombre": "Fernando Alonso",
+    "disciplina": "F1",
+    "edad": 42,
+    "altura_cm": 171,
+    "experiencia_años": 20,
+    "idiomas": "Español, Inglés",
+    "calificacion": "4.8",
+    "imagen": "pilotos/alonso.jpg"
+  }
+},
+{
+  "model": "DriveX.piloto",
+  "pk": 18,
+  "fields": {
+    "nombre": "Sebastian Vettel",
+    "disciplina": "F1",
+    "edad": 36,
+    "altura_cm": 176,
+    "experiencia_años": 15,
+    "idiomas": "Alemán, Inglés",
+    "calificacion": "4.7",
+    "imagen": "pilotos/sebastian-vettel.png"
+  }
+},
+{
+  "model": "DriveX.piloto",
+  "pk": 19,
+  "fields": {
+    "nombre": "Mika Häkkinen",
+    "disciplina": "F1",
+    "edad": 54,
+    "altura_cm": 176,
+    "experiencia_años": 12,
+    "idiomas": "Finlandés, Inglés",
+    "calificacion": "4.8",
+    "imagen": "pilotos/mika.jpg"
+  }
+},
+{
+  "model": "DriveX.piloto",
+  "pk": 20,
+  "fields": {
+    "nombre": "Didier Auriol",
+    "disciplina": "RALLY",
+    "edad": 64,
+    "altura_cm": 174,
+    "experiencia_años": 25,
+    "idiomas": "Francés, Inglés",
+    "calificacion": "4.7",
+    "imagen": "pilotos/DIDIER-AURIOL-2-b.png"
+  }
+},
+{
+  "model": "DriveX.piloto",
+  "pk": 21,
+  "fields": {
+    "nombre": "Ari Vatanen",
+    "disciplina": "RALLY",
+    "edad": 70,
+    "altura_cm": 177,
+    "experiencia_años": 22,
+    "idiomas": "Finlandés, Inglés",
+    "calificacion": "4.8",
+    "imagen": "pilotos/ari.jpg"
+  }
+}
+]
